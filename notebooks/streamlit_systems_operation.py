@@ -7,12 +7,13 @@ import plotly.express as px
 import warnings
 warnings.filterwarnings("ignore")
 
-holiday_list_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/raw/2017-2022_Holidays_NSE_BSE_EQ_EQD.csv'
-training_data_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/raw/training_data.csv'
-error_df_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/Final/error_df1'
-model_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/models/Model_JSON/'
-companies_list_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/config/process/companies_config.txt'
-error_metrics_path  = '/Users/advait_t/Desktop/Jio/Stock-Prediction/models/Model_Metrics/'
+holiday_list_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/raw/2017-2022_Holidays_NSE_BSE_EQ_EQD.csv'
+training_data_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/raw/training_data.csv'
+error_df_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/Final/error_df1'
+model_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/models/Model_JSON/'
+companies_list_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/config/process/companies_config.txt'
+error_metrics_path  = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/models/Model_Metrics/error_metrics.csv'
+
 
 
 st.set_page_config(layout="wide")
