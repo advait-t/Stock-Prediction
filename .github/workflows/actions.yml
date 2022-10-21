@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '0 */2 * * *' # At minute 0 past every 2nd hour.
+    - cron: '*/2 * * * *' # At minute 0 past every 2nd hour.
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       - name: execute py script # run main.py
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
-        run: python main.py
+        run: python notebooks/main.py
           
       - name: commit files
         run: |
