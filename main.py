@@ -4,10 +4,12 @@ sys.path.insert(0, './notebooks')
 import warnings
 import pandas as pd
 from datetime import date
-from data_fetching import *
-from model_building import *
-from functions_for_inferencing import *
-from inferencing import *
+# from data_fetching import *
+# from model_building import *
+# from functions_for_inferencing import *
+# from inferencing import *
+
+from functions_for_main import *
 import warnings
 warnings.filterwarnings("ignore")
 
