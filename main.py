@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.insert(0, './notebooks')
 import warnings
 import pandas as pd
 from datetime import date
