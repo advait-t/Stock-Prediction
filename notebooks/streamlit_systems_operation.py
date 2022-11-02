@@ -15,7 +15,6 @@ companies_list_path = 'https://raw.githubusercontent.com/advait-t/Stock-Predicti
 error_metrics_path  = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/models/Model_Metrics/error_metrics.csv'
 
 
-
 st.set_page_config(layout="wide")
 
 st.sidebar.title('Daily Stock Price Prediction')
@@ -92,7 +91,7 @@ else:
     elif datetime.today().weekday() != 5 or is_holiday == True:
         monday_date = date.today() + timedelta(days=1)
 
-    monday_date = str(monday_date.strftime('%d-%B-%Y'))
+    monday_date = str(monday_date.strftime('%d-%B-%Y')) # type: ignore
     mondays_predicted_close = (error_df[error_df['Date'] == monday_date]['Predicted_Close'].values[0]).round(2)
     mondays_predicted_up_down = error_df[error_df['Date'] == monday_date]['Predicted_Up_Down'].values[0]
     if mondays_predicted_up_down == 'Up':
@@ -101,7 +100,7 @@ else:
         tomorrows_predicted_up_down = '-Down'
 
     col3.header('%s'%monday_date)
-    col3.metric('Predicted Price','\u20B9' + str(mondays_predicted_close), tomorrows_predicted_up_down)
+    col3.metric('Predicted Price','\u20B9' + str(mondays_predicted_close), tomorrows_predicted_up_down) # type: ignore
 
 #! printing the next prediction day and time
 if datetime.now().weekday() == 5:

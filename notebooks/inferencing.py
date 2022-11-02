@@ -70,7 +70,7 @@ def real_stock_price(company, predicted):
     elif weekday_weekend.weekday() == 0:
         days = 3
 
-    past = datetime.strptime(str(predicted['ds'][0]), '%Y-%m-%d %H:%M:%S') - timedelta(days)
+    past = datetime.strptime(str(predicted['ds'][0]), '%Y-%m-%d %H:%M:%S') - timedelta(days) # type: ignore
     past = past.replace(hour = now.hour, minute = now.minute, second = now.second, microsecond = now.second)
     past = int(time.mktime(past.timetuple()))
     
@@ -98,7 +98,7 @@ def next_day_prediction(model_path, missing_dates, missing_dates_df = 0):
         predicted = saved_model.predict(future_date)
         return (predicted[['ds','yhat', 'yhat_upper', 'yhat_lower']])
     else:
-        missing_dates_df.rename(columns={'Date':'ds'}, inplace=True)
+        missing_dates_df.rename(columns={'Date':'ds'}, inplace=True) # type: ignore
         predicted = saved_model.predict(missing_dates_df)
         return (predicted[['ds','yhat', 'yhat_upper', 'yhat_lower']])
 
@@ -184,7 +184,7 @@ def filling_missing_dates(error_df, company, holiday_list_path, model_path):
         if is_holiday(date_range_df['Date'][i], holiday_list_path) == True:
             date_range_df = date_range_df[date_range_df['Date'] != date_range_df['Date'][i]]
             
-    missing_dates_df = next_day_prediction(model_path + company + '.json',True, date_range_df)
+    missing_dates_df = next_day_prediction(model_path + company + '.json',True, date_range_df) # type: ignore
     missing_dates_df = real_stock_price_missing_date(company, missing_dates_df)
 
     # convert ds from datetime to date
