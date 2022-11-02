@@ -9,20 +9,23 @@ from inferencing import *
 import warnings
 warnings.filterwarnings("ignore")
 
-def main():
-    holiday_list_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/raw/2017-2022_Holidays_NSE_BSE_EQ_EQD.csv'
-    training_data_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/raw/training_data.csv'
-    error_df_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/Final/error_df1'
-    model_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/models/Model_JSON/'
-    companies_list_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/config/process/companies_config.txt'
-    error_metrics_path  = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/models/Model_Metrics/error_metrics.csv'
+# retrin model every saturday or if error more than 5%
+# ui changes as per screenshot
 
-    # holiday_list_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/raw/2017-2022_Holidays_NSE_BSE_EQ_EQD.csv'
-    # training_data_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/raw/training_data.csv'
-    # error_df_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/Final/error_df1'
-    # model_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/models/Model_JSON/'
-    # companies_list_path = "/Users/advait_t/Desktop/Jio/Stock-Prediction/config/process/companies_config.txt"
-    # error_metrics_path = "/Users/advait_t/Desktop/Jio/Stock-Prediction/models/Model_Metrics/error_metrics.csv"
+def main():
+    # holiday_list_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/raw/2017-2022_Holidays_NSE_BSE_EQ_EQD.csv'
+    # training_data_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/raw/training_data.csv'
+    # error_df_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/data/Final/error_df1'
+    # model_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/models/Model_JSON/'
+    # companies_list_path = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/config/process/companies_config.txt'
+    # error_metrics_path  = 'https://raw.githubusercontent.com/advait-t/Stock-Prediction/master/models/Model_Metrics/error_metrics.csv'
+
+    holiday_list_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/raw/2017-2022_Holidays_NSE_BSE_EQ_EQD.csv'
+    training_data_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/raw/training_data.csv'
+    error_df_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/data/Final/error_df1'
+    model_path = '/Users/advait_t/Desktop/Jio/Stock-Prediction/models/Model_JSON/'
+    companies_list_path = "/Users/advait_t/Desktop/Jio/Stock-Prediction/config/process/companies_config.txt"
+    error_metrics_path = "/Users/advait_t/Desktop/Jio/Stock-Prediction/models/Model_Metrics/error_metrics.csv"
 
     #! Checking if there is an addition or deletion of companies in the configs file
     new_company, delete_company = check_for_changes_in_companies(training_data_path, companies_list_path)

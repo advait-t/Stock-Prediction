@@ -93,7 +93,7 @@ def read_data(company, previous_days, training_data_path, holidays_list_path = 0
     company_prices.columns = ['ds', 'y']
     company_prices['ds'] = pd.to_datetime(company_prices['ds'])
 
-    holidays_list = pd.read_csv(holidays_list_path)
+    holidays_list = pd.read_csv(holidays_list_path)  # type: ignore
 
     for i in range(len(holidays_list['Day'])):
         holidays_list['Day'][i] = pd.to_datetime(parse(holidays_list['Day'][i]))

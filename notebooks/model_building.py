@@ -42,9 +42,9 @@ def model_building_for_new_company(company, company_prices, holidays_list, h, el
             changepoint_prior_scale=30,
             seasonality_prior_scale=35,
             holidays_prior_scale=20,
-            daily_seasonality=False,
-            weekly_seasonality=False,
-            yearly_seasonality=False,
+            daily_seasonality= False,   # type: ignore
+            weekly_seasonality= False, # type: ignore
+            yearly_seasonality= False,# type: ignore
             ).add_seasonality(
                 name='monthly',
                 period=30.5,
